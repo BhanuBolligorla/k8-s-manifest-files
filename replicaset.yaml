@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: food-pod
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: food
+  template:
+    metadata:
+      labels:
+        app: food
+    spec:
+      containers:
+        - name: food-container
+          image: bhanu4309/hotelapp:alpine
+          ports:
+            - containerPort: 80
